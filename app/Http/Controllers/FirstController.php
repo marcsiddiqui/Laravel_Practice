@@ -41,9 +41,9 @@ class FirstController extends Controller
 
     public function Products(){
         
-        // $products = Product::all();
+        $products = Product::all();
         // $products = Product::orderby('name', 'asc')->get();
-        $products = Product::where('name', 'Tie')->get();
+        // $products = Product::where('name', 'Tie')->get();
     
         return view('products', ["products" => $products]);
     }
@@ -60,5 +60,19 @@ class FirstController extends Controller
         $obj->save();
 
         return redirect("/products")->with("msg", "Added Successfully");
+    }
+
+    public function ProductCreate_get() {
+        return view("product_create");
+    }
+
+    public function ProductCreate_post() {
+        $obj = new Product();
+        $obj->name = request("Name");
+        $obj->description = request("Description");
+        $obj->bundle_qunatity = request("BundleQuantity");
+        $obj->save();
+
+        return redirect("/products");
     }
 }

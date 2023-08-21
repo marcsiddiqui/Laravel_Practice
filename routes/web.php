@@ -24,5 +24,3 @@ Route::post('/createproduct', 'App\Http\Controllers\FirstController@CreateProduc
 
 Route::get('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_get');
 Route::post('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_post');
-
-resources\views\product_create.blade.php
