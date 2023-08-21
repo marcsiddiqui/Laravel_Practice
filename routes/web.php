@@ -21,3 +21,8 @@ Route::get('/products', 'App\Http\Controllers\FirstController@Products');
 
 Route::get('/createproduct', 'App\Http\Controllers\FirstController@CreateProduct_get');
 Route::post('/createproduct', 'App\Http\Controllers\FirstController@CreateProduct_post');
+
+Route::get('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_get');
+Route::post('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_post');
+
+resources\views\product_create.blade.php
