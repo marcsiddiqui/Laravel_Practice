@@ -75,4 +75,23 @@ class FirstController extends Controller
 
         return redirect("/products");
     }
+
+    public function ProductEdit_get($id) {
+
+        $product = Product::findOrFail($id);
+
+        return view("product_edit", $product);
+    }
+
+    // this is not working for now
+    public function ProductEdit_post() {
+        $obj = Product::findOrFail(request("Id"));
+        // $obj = new Product();
+        $obj->name = request("Name");
+        $obj->description = request("Description");
+        $obj->bundle_qunatity = request("BundleQuantity");
+        $obj->save();
+
+        return redirect("/products");
+    }
 }
