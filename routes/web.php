@@ -24,3 +24,6 @@ Route::post('/createproduct', 'App\Http\Controllers\FirstController@CreateProduc
 
 Route::get('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_get');
 Route::post('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_post');
+
+Route::get('/pro_edit/{id}', 'App\Http\Controllers\FirstController@ProductEdit_get');
+Route::post('/pro_edit', 'App\Http\Controllers\FirstController@ProductEdit_post');

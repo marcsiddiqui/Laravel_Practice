@@ -21,6 +21,7 @@
             <th>Product Name</th>
             <th>Product Description</th>
             <th>Product Bundle Qty</th>
+            <th></th>
 
         @foreach($products as $product)
            
@@ -28,6 +29,7 @@
                 <td>{{$product["name"]}}</td>
                 <td>{{$product["description"]}}</td>
                 <td>{{$product["bundle_qunatity"]}}</td>
+                <td><a href="/pro_edit/{{$product["id"]}}">Edit</a></td>
             </tr>
             
         @endforeach
