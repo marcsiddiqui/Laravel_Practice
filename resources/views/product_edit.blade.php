@@ -17,10 +17,9 @@
 
         <h1>Edit Product</h1>
         
-        <form action="pro_edit" method="post">
+        <form action="{{ url('pro_edit/'.$id)}}" method="post">
             @csrf;
 
-            <input name="Id" type="hidden" value={{$id}} />
             <input type="text" name="Name" placeholder="Product Name" value="{{$name}}" />
             <input type="text" name="Description" placeholder="Product Description" value="{{$description}}" />
             <input type="number" name="BundleQuantity" placeholder="Product Bundle Quantity" value="{{$bundle_qunatity}}" />

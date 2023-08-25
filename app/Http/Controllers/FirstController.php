@@ -39,6 +39,8 @@ class FirstController extends Controller
         return view('routeparameter', $finalData);
     }
 
+    // ------------------------------------------------------------------
+    // CRUD application action start from here
     public function Products(){
         
         $products = Product::all();
@@ -46,20 +48,6 @@ class FirstController extends Controller
         // $products = Product::where('name', 'Tie')->get();
     
         return view('products', ["products" => $products]);
-    }
-
-    public function CreateProduct_get(){
-        return view("createproduct");
-    }
-
-    public function CreateProduct_post(){
-        $obj = new Product();
-        $obj->name = request("Name");
-        $obj->description = request("Description");
-        $obj->bundle_qunatity = request("BundleQuantity");
-        $obj->save();
-
-        return redirect("/products")->with("msg", "Added Successfully");
     }
 
     public function ProductCreate_get() {
@@ -83,15 +71,20 @@ class FirstController extends Controller
         return view("product_edit", $product);
     }
 
-    // this is not working for now
-    public function ProductEdit_post() {
-        $obj = Product::findOrFail(request("Id"));
-        // $obj = new Product();
+    public function ProductEdit_post($id) {
+        $obj = Product::findOrFail($id);
         $obj->name = request("Name");
         $obj->description = request("Description");
         $obj->bundle_qunatity = request("BundleQuantity");
         $obj->save();
 
+        return redirect("/products");
+    }
+
+    public function ProductDelete($id) {
+
+        $obj = Product::findOrFail($id);
+        $obj->delete();
         return redirect("/products");
     }
 }

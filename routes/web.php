@@ -17,13 +17,20 @@ Route::get('/', 'App\Http\Controllers\FirstController@Welcome');
 Route::get('/home', 'App\Http\Controllers\FirstController@Home');
 Route::get('/qp', 'App\Http\Controllers\FirstController@QueryParameter');
 Route::get('/rp/{name}/{age}', 'App\Http\Controllers\FirstController@RouteParameter');
+
+
+// CRUD application ROUTES
+// ------------------------------
+// list
 Route::get('/products', 'App\Http\Controllers\FirstController@Products');
 
-Route::get('/createproduct', 'App\Http\Controllers\FirstController@CreateProduct_get');
-Route::post('/createproduct', 'App\Http\Controllers\FirstController@CreateProduct_post');
-
+// create
 Route::get('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_get');
 Route::post('/pro_create', 'App\Http\Controllers\FirstController@ProductCreate_post');
 
+// edit
 Route::get('/pro_edit/{id}', 'App\Http\Controllers\FirstController@ProductEdit_get');
-Route::post('/pro_edit', 'App\Http\Controllers\FirstController@ProductEdit_post');
+Route::post('/pro_edit/{id}', 'App\Http\Controllers\FirstController@ProductEdit_post');
+
+// delete
+Route::get('/pro_delete/{id}', 'App\Http\Controllers\FirstController@ProductDelete');

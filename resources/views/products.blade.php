@@ -30,6 +30,7 @@
                 <td>{{$product["description"]}}</td>
                 <td>{{$product["bundle_qunatity"]}}</td>
                 <td><a href="/pro_edit/{{$product["id"]}}">Edit</a></td>
+                <td><a href="/pro_delete/{{$product["id"]}}">Delete</a></td>
             </tr>
             
         @endforeach
